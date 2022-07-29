@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>04_.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+<link rel="stylesheet" href="file:///c%3A/Users/m-yasukawa/Desktop/%E6%A1%88%E4%BB%B6/Java%E7%A0%94%E4%BF%AE%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0/%E7%A0%94%E4%BF%AE%E4%B8%AD%E3%83%A1%E3%83%A2/github-markdown.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="03branch">03_branch</h1>
+<p>TortoiseGitとgithubの連携を行い、TortoiseGitからコミットする。</p>
+<h2 id="%E5%89%8D%E6%8F%90">前提</h2>
+<ul>
+<li>githubのアカウントは作成済</li>
+<li>TortoiseGitはまだDLしてない</li>
+</ul>
+<h2 id="%E6%A6%82%E8%A6%81%E4%BD%95%E3%81%97%E3%81%A6%E3%82%8B%E3%81%AE">概要（何してるの？）</h2>
+<p>プッシュしたので、早速githubでファイルを確認してみる。</p>
+<img width="70%" src="../png/04_zentei01.png">
+<p>すると、貼り付けた画像が正しく表示されていない。<br>
+原因は単純で、画像ファイルをリポジトリに追加するのを忘れていたから。<br>
+これを修正するために、issueを作成し、ブランチをきって、マージまで行う。</p>
+<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<ul>
+<li><a href="#03_branch">03_branch</a>
+<ul>
+<li><a href="#%E5%89%8D%E6%8F%90">前提</a></li>
+<li><a href="#%E6%A6%82%E8%A6%81%E4%BD%95%E3%81%97%E3%81%A6%E3%82%8B%E3%81%AE">概要（何してるの？）</a></li>
+<li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%8B%E9%A0%86---issue%E4%BD%9C%E6%88%90">手順 - Issue作成</a>
+<ul>
+<li><a href="#1-issue%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. Issue画面を開く</a></li>
+<li><a href="#2-issue%E5%86%85%E5%AE%B9%E3%82%92%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%82%80">2. Issue内容を書き込む</a></li>
+<li><a href="#3-issue%E4%BD%9C%E6%88%90%E5%AE%8C%E4%BA%86">3. Issue作成完了</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%8B%E9%A0%86---%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%81%8D%E3%82%8B">手順 - ブランチをきる</a>
+<ul>
+<li><a href="#1-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E4%BD%9C%E6%88%90%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. ブランチ作成画面を開く</a></li>
+<li><a href="#2-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E5%85%A5%E5%8A%9B%E3%81%99%E3%82%8B">2. ブランチの情報を入力する</a></li>
+<li><a href="#3-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E4%BD%9C%E6%88%90%E5%AE%8C%E4%BA%86">3. ブランチ作成完了</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%8B%E9%A0%86--">手順 -</a>
+<ul>
+<li><a href="#0-%E4%BF%AE%E6%AD%A3%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5">0. 修正、コミット、プッシュ</a></li>
+<li><a href="#1">1.</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="%E6%89%8B%E9%A0%86---issue%E4%BD%9C%E6%88%90">手順 - Issue作成</h1>
+<p>Issueとは、何かしらのタスクや課題のこと。gitを使う場合、Issueによって課題を管理することが多い。<br>
+Issueによる課題管理の流れは以下のようになる。</p>
+<ol>
+<li>課題発生、Issue作成</li>
+<li>Issue内で課題についてやり取りをしながら課題解決</li>
+<li>課題解決、Issueを閉じる</li>
+</ol>
+<h2 id="1-issue%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. Issue画面を開く</h2>
+<p>リポジトリ画面から、Issueを開き、右上の<code>New issue</code>を選択する。<br>
+<img src="../png/04_issues01.png"></p>
+<h2 id="2-issue%E5%86%85%E5%AE%B9%E3%82%92%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%82%80">2. Issue内容を書き込む</h2>
+<p>下記のような画面が表示されるので、Issueの内容を書き込む。</p>
+<div>
+<img width="100%" src="../png/04_issues02.png">
+<div style="margin-top: 1em; line-height: 1.4; font-size: 85%;">
+<ol>
+<li>
+<p>Title<br>
+Issueのタイトル。概要を書き込む。<br>
+誰が見ても一目でわかるように心がける。</p>
+</li>
+<li>
+<p>Leave a comment<br>
+Issueの詳細。md記法。できる限り細かく書く。<br>
+例えばバグの修正の場合、</p>
+<ol>
+<li>問題<br>
+今何が起きているか？</li>
+<li>原因<br>
+なぜ、あるいはどのような操作をすると問題が発生するのか。</li>
+<li>想定<br>
+正しくはどのような動作をするのか</li>
+<li>対応<br>
+不具合解消のための対応策</li>
+</ol>
+<p>などを書く。<br>
+わからないところは「調査中」とか「検討中」とか書いて、あとで追記すればいい。</p>
+</li>
+<li>
+<p>Assignees<br>
+担当者。このIssueのボールを持っている人を設定する。</p>
+</li>
+<li>
+<p>Labels<br>
+Issueのタグ付け。「bug」とかつける。</p>
+</li>
+<li>
+<p>Millestone<br>
+タグ付けその2。「第1次開発」とかつける。</p>
+</li>
+</ol>
+</div>
+</div><br/>
+<p>書き込んだ後。</p>
+<img src="../png/04_issues03.png">
+<p>想定される動作は明確なので、いま発生している問題とともに、概要としてまとめて記述した。<br>
+1人で開発しているので担当者は未設定、ラベルだけつけておいた。<br>
+右下の<code>Submit new issue</code>を押せば作成される。</p>
+<h2 id="3-issue%E4%BD%9C%E6%88%90%E5%AE%8C%E4%BA%86">3. Issue作成完了</h2>
+<p>作成完了。下記のように表示される。<br>
+<img width="70%" src="../png/04_issues04.png"></p>
+<p>Issue一覧ではこんな感じ。<br>
+<img width="70%" src="../png/04_issues05.png"></p>
+<h1 id="%E6%89%8B%E9%A0%86---%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%81%8D%E3%82%8B">手順 - ブランチをきる</h1>
+<p>せっかくなので新しくブランチを作ってみる。</p>
+<h2 id="1-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E4%BD%9C%E6%88%90%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. ブランチ作成画面を開く</h2>
+<p>ローカルリポジトリを右クリックし、<code>TortoiseGit &gt; ブランチを作成(B)...</code>を選択。</p>
+<h2 id="2-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E5%85%A5%E5%8A%9B%E3%81%99%E3%82%8B">2. ブランチの情報を入力する</h2>
+<p>下記のような画面が表示されるので、色々と入力する。</p>
+<div>
+<img src="../png/04_branch02.png">
+<div style="margin-top: 1em; line-height: 1.4; font-size: 100%;">
+<ol>
+<li>
+<p>名前(N) ブランチ<br>
+ブランチの名前。わかりやすい名前にする。<br>
+#Issue番号-何々を-どうする<br>
+みたいに書いたりするが、現場に合わせること。</p>
+</li>
+<li>
+<p>オプション 新しいブランチに切り替える(S)<br>
+ブランチ作成後、新しいブランチに切り替えるかどうか。<br>
+チェックしておくことを推奨。</p>
+</li>
+</ol>
+</div>
+</div><br/>
+<p>書き込んだあと。<br>
+<img src="../png/04_branch03.png"><br>
+特に深く考えてはいない。<br>
+そのまま<code>OK</code>を選択して作成する。</p>
+<h2 id="3-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E4%BD%9C%E6%88%90%E5%AE%8C%E4%BA%86">3. ブランチ作成完了</h2>
+<p>いつもの。<br>
+<img src="../png/04_branch04.png"></p>
+<h1 id="%E6%89%8B%E9%A0%86">手順 -</h1>
+<h2 id="0-%E4%BF%AE%E6%AD%A3%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5">0. 修正、コミット、プッシュ</h2>
+<p>ブランチを切り替えたので、とりあえず修正を行う。</p>
+<div>
+<img src="../png/04_commit01.png">
+<img src="../png/04_commit02.png">
+</div>
+<p>画像を追加し、mdファイル内の画像のパスを修正。<br>
+ついでに見出しをちょっと変更した。</p>
+<p>コミットする。<br>
+<img src="../png/04_commit03.png"></p>
+<p>コミット画面のメッセージで右クリック、<code>最近のメッセージを貼り付け(E)...</code>で、<br>
+最近のコミットメッセージの一覧が表示される。<br>
+<img src="../png/04_commit04.png"></p>
+<p>選択するとメッセージ欄に貼り付けられるので、ちょっと楽できたり、<br>
+これまでのメッセージを参考にできる。</p>
+<img src="../png/04_commit05.png">
+今回は特に参考にせず記述した。
+<h2 id="1">1.</h2>
+
+</body>
+</html>

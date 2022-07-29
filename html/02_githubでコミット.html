@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>02_githubでコミット.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+<link rel="stylesheet" href="file:///c%3A/Users/m-yasukawa/Desktop/%E6%A1%88%E4%BB%B6/Java%E7%A0%94%E4%BF%AE%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0/%E7%A0%94%E4%BF%AE%E4%B8%AD%E3%83%A1%E3%83%A2/github-markdown.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="02github%E3%81%A7%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88">02_githubでコミット</h1>
+<p>READMEに追記し、コミットする。</p>
+<h2 id="%E5%89%8D%E6%8F%90">前提</h2>
+<ul>
+<li>リポジトリ作成済</li>
+<li>TortoiseGitはまだ</li>
+<li>md記法の詳細な解説は行わない</li>
+</ul>
+<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<ul>
+<li><a href="#02_github%E3%81%A7%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88">02_githubでコミット</a>
+<ul>
+<li><a href="#%E5%89%8D%E6%8F%90">前提</a></li>
+<li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%A8%E3%81%AF">コミットとは？</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a>
+<ul>
+<li><a href="#1-readme%E3%81%AEedit%E3%81%AB%E9%80%B2%E3%82%80">1. READMEのEditに進む</a></li>
+<li><a href="#2-readme%E3%81%AB%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B">2. READMEに記述する。</a></li>
+<li><a href="#3-%E5%A4%89%E6%9B%B4%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%99%E3%82%8B">3. 変更をコミットする</a></li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%A8%E3%81%AF">コミットとは？</h1>
+<blockquote>
+<p>TODO:誰かがわかりやすい説明を記述する。</p>
+</blockquote>
+<h1 id="%E6%89%8B%E9%A0%86">手順</h1>
+<h2 id="1-readme%E3%81%AEedit%E3%81%AB%E9%80%B2%E3%82%80">1. READMEのEditに進む</h2>
+<p>READMEの右上あたりのEditボタン（鉛筆マーク）をクリックする。<br>
+<img width="90%" src="../png/01_repository04.png"></p>
+<p>するとこんなページに遷移する。<br>
+<img width="90%" src="../png/02_commit01.png"></p>
+<h2 id="2-readme%E3%81%AB%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B">2. READMEに記述する。</h2>
+<p>md記法で書き込む。解説が必要なら別途。<br>
+<img width="60%" src="../png/02_commit02.png"></p>
+<details><summary>TIPS</summary>
+<p>タブのPreviewを選択すると、書いたmdのレビューができる。編集終える前に一度確認しておくべき。<br>
+<img width="60%" src="../png/02_commit02_2.png"></p>
+</details>
+<h2 id="3-%E5%A4%89%E6%9B%B4%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%99%E3%82%8B">3. 変更をコミットする</h2>
+<p>画面下のほうに<code>Commit changes</code>が表示されているので、ここにコミットの内容を記載する。</p>
+<div>
+<img width="70%" src="../png/02_commit03.png">
+<div style="margin-top: 1em; line-height: 1.4; font-size: 90%;">
+<ol>
+<li>
+<p>一番上の欄（Create README.md）<br>
+コミット内容の概要？何をしたかを記述する。<br>
+現場によって書き方は変わるけど、先頭にコミットの種別、その次に概要を記述することが多いと思う。</p>
+</li>
+<li>
+<p>2つめの欄 (Add an optional~)<br>
+コミット内容の詳細。概要レベルで把握できるなら書かなかったり。</p>
+</li>
+<li>
+<p>Commit directly~ / Create a new Branch~<br>
+直接<code>main</code>ブランチにコミットするか、新しくブランチをきってプルリクエストを投げるか。<br>
+ブランチ・プルリクエストについては別途。</p>
+</li>
+</ol>
+</div>
+</div><br/>
+<p>コミットメッセージの例としてはこんな感じ。<br>
+<img width="70%" src="../png/02_commit04.png"></p>
+<p>これで<code>Commit changes</code>をクリックすればコミットされる。</p>
+<h2 id="%E5%AE%8C%E6%88%90">完成</h2>
+<p>これで完成。READMEの内容が変更された。</p>
+<p><img width="90%" src="../png/02_commit05.png"><br/></p>
+<p>コミット内容は右上の時計っぽいボタンから確認できる。</p>
+<p>さっきのコミットメッセージはこんな感じ。<br>
+<img width="60%" src="../png/02_commit06.png"></p>
+
+</body>
+</html>
