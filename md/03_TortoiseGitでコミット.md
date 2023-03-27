@@ -3,8 +3,6 @@
 # 03_TortoiseGitでgitクローン、コミット、プッシュ
 TortoiseGitとgithubの連携を行い、TortoiseGitからコミットする。
 
-
-
 ## 前提
 - githubのアカウントは作成済
 - TortoiseGitはまだDLしてない
@@ -50,10 +48,8 @@ githubに直接アップロードしてもいいけど、ここではTortoiseGit
 また、これから本格的にgitについて解説しますが、基本的には共有サーバとローカルPCのやり取りで考えればわかりやすいと思います。
 
 ## 0. TortoiseGitの準備
-TortoiseGitとは、gitのクライアント。gitを使いやすくしてくれる。
-
-インストールして日本語化までする。gitがまだだったらそっちもする。  
-詳細は割愛。下記URL参考に。
+TortoiseGitはgitのクライアント。gitを使いやすくしてくれる。
+インストールして日本語化までする。gitがまだだったらそっちもする。詳細は割愛。下記URL参考に。
 [Gitのインストール｜サル先生のGit入門【プロジェクト管理ツールBacklog】](https://backlog.com/ja/git-tutorial/intro/05/)
 
 ## 1. どこかにgit用フォルダを作る
@@ -78,121 +74,90 @@ C:
 
 ## 2. gitクローンする
 作ったフォルダを右クリックして、`gitクローン(複製)...`を選択。
-
-<img width="70%" src="../resource/3/03_clone01.png">
+<img src="../resource/3/03_clone01.png">
 
 下記のようなgitクローン画面が表示される。
-
-<div class="grid">
-<img src="../resource/3/03_clone02.png">
-
-<div style="margin-top: 1em; line-height: 1.4; font-size: 120%;">
+<div class="Column2Div"><img src="../resource/3/03_clone02.png"><div style='font-size: 110%;'>
 
 1. URL:
    クローンする元のリポジトリのURLを入力する。
-
 2. ディレクトリ
    クローン先のフォルダ。特にいじることはない。
 
-</div>
-</div><br/>
-
-gitクローン画面に入力するためのURLを取得する。  
-githubのページの、`Code`からコピーできる。
-<img width="70%" src="../resource/3/03_clone03.png">
+</div></div>
 
 
 
-`URL:`欄に、コピーしたURLを貼り付ける。  
-すると、クローン先のパスにレポジトリ名のディレクトリが自動的に追加される。  
+gitクローン画面に入力するためのURLを取得する。githubのページの、`Code`からコピーできる。
+<img src="../resource/3/03_clone03.png">
+
+`URL:`欄に、コピーしたURLを貼り付ける。すると、クローン先のパスにレポジトリ名のディレクトリが自動的に追加される。  
 また、このディレクトリが存在しない場合、クローン実行時に作成される。
-<img width="50%" src="../resource/3/03_clone04.png">
+<img src="../resource/3/03_clone04.png">
 
-チェックは特にせず、そのまま`OK`を選択。  
-コマンド実行中のウィンドウが表示される。
+チェックは特にせず、そのまま`OK`を選択。コマンド実行中のウィンドウが表示される。
+
 
 ### TortoiseGitとgithubの連携
-<details><summary>連携を求められたら</summary>
-
-<div style="margin-left: 1em; border-bottom: dashed var(--color-border-muted); border-bottom-width:thin;">
+<details><summary>連携を求められたら実行する</summary>
 
 TortoiseGitとgithubの連携を求める、下記のような画面が表示されている想定。
 
-<img width="60%" src="../resource/3/03_clone05.png">
+<img src="../resource/3/03_clone05.png">
 
 言われるがままに連携を進めていけばよい。はず。
 
-<img width="30%" src="../resource/3/03_clone06.png">
+<img src="../resource/3/03_clone06.png">
 
-<img width="30%" src="../resource/3/03_clone07.png" style="position: absolute; margin-left: 1em;">
+<img src="../resource/3/03_clone07.png" style="position: absolute; margin-left: 1em;">
 
 連携終了すればコマンド実行が再開される。
-</div>
 
 </details>
 
 ## 3. クローン完了
 コマンドが成功したら完了。
-<img width="50%" src="../resource/3/03_clone08.png">
+<img src="../resource/3/03_clone08.png">
 
 gitフォルダを開くと、githubのリポジトリと同じフォルダ構成になっている。
-
-<div>
-	<img width="50%" src="../resource/3/03_clone09.png">
-
-<div style="margin-left: 1em;">
-	<img src="../resource/3/03_clone10.png" style="display: block;">
-	<p style="margin-left: 1em;">※ツリー表示にするとこんな感じ。</p>
-</div>
-
-
-</div>
-<br/>
+<img src="../resource/3/03_clone09.png">
 
 
 > 緑のチェックマークについては後述します。
 > 現状では、付いていてもいなくても問題ありません。
 
 
-
-
 # 手順 - コミット
 リポジトリをローカルに持ってきたので、早速ファイルを追加する。ファイルをコピペするだけなので割愛。
-
-<img width="50%" src="../resource/3/03_commit01.png">
-
+<img src="../resource/3/03_commit01.png">
 
 
 ## 1. コミット画面を開く
 右クリックし、`Git コミット(C) > "main"...`を選択。
-<img width="50%" src="../resource/3/03_commit02.png">
+<img  src="../resource/3/03_commit02.png">
 
 
 ## 2. コミットの設定をして実行
 下記のような画面が表示されるので、メッセージを書き込み、コミットするファイルを選択する。
 
-<div class="Column2Div">
-<img width="70%" src="../resource/3/03_commit03.png">
+<div class="Column2Div"><img src="../resource/3/03_commit03.png"><div style='font-size: 110%;'>
 
-<aside style="margin-top: 1em; line-height: 1.4; font-size: 110%;">
+1. メッセージ(M):
+   そのままの意味。メッセージ。
+   1行目がgithubでコミットするときの概要、2行目からが詳細となる。
 
-   1. メッセージ(M):
-      そのままの意味。メッセージ。
-      1行目がgithubでコミットするときの概要、2行目からが詳細となる。
+2. 変更した項目
+   変更されたファイルの一覧。
+   チェックされたファイルがコミットされる。
+   今回は新規ファイルを追加したので、各ファイルの状態は「管轄外」となっている。
 
-   2. 変更した項目
-      変更されたファイルの一覧。チェックされたファイルがコミットされる。
-      今回は新規ファイルを追加したので、各ファイルの状態は「管轄外」となっている。
-
-</aside>
-</div><br/>
+</div></div>
 
 コミット(O)をクリックすればコミットが実行され、コマンド実行中のウィンドウが表示される。
 
-
 ## 3. コミット完了
 コマンドが成功したら完了。
-<img width="50%" src="../resource/3/03_commit04.png">
+<img src="../resource/3/03_commit04.png">
 
 
 
@@ -221,7 +186,7 @@ pushとは、ローカルリポジトリの更新をリモートリポジトリ�
 
 
 無事にgithubにも変更が反映されている。
-<img width="80%" src="../resource/3/03_push03.png">
+<img src="../resource/3/03_push03.png">
 
 
 # チェックマークについて

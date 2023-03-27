@@ -421,9 +421,8 @@ githubに直接アップロードしてもいいけど、ここではTortoiseGit
 <p>リモートリポジトリはサーバ上のファイルやフォルダ、ローカルリポジトリはそのサーバ上のファイルをフォルダごとコピーしてPCに保存したもの、と思ってください。<br>
 また、これから本格的にgitについて解説しますが、基本的には共有サーバとローカルPCのやり取りで考えればわかりやすいと思います。</p>
 <h2 id="0-tortoisegit%E3%81%AE%E6%BA%96%E5%82%99">0. TortoiseGitの準備</h2>
-<p>TortoiseGitとは、gitのクライアント。gitを使いやすくしてくれる。</p>
-<p>インストールして日本語化までする。gitがまだだったらそっちもする。<br>
-詳細は割愛。下記URL参考に。<br>
+<p>TortoiseGitはgitのクライアント。gitを使いやすくしてくれる。<br>
+インストールして日本語化までする。gitがまだだったらそっちもする。詳細は割愛。下記URL参考に。<br>
 <a href="https://backlog.com/ja/git-tutorial/intro/05/">Gitのインストール｜サル先生のGit入門【プロジェクト管理ツールBacklog】</a></p>
 <h2 id="1-%E3%81%A9%E3%81%93%E3%81%8B%E3%81%ABgit%E7%94%A8%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%82%92%E4%BD%9C%E3%82%8B">1. どこかにgit用フォルダを作る</h2>
 <p>ひとまず、どこかにgit用のフォルダを作る。C直下やユーザー直下に「git」とか、わかりやすい名前を付けて作成。<br>
@@ -442,71 +441,50 @@ githubに直接アップロードしてもいいけど、ここではTortoiseGit
 </div></code></pre>
 <p>フォルダ構成は上記のようになっていく。</p>
 <h2 id="2-git%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B">2. gitクローンする</h2>
-<p>作ったフォルダを右クリックして、<code>gitクローン(複製)...</code>を選択。</p>
-<img width="70%" src="../resource/3/03_clone01.png">
+<p>作ったフォルダを右クリックして、<code>gitクローン(複製)...</code>を選択。<br>
+<img src="../resource/3/03_clone01.png"></p>
 <p>下記のようなgitクローン画面が表示される。</p>
-<div class="grid">
-<img src="../resource/3/03_clone02.png">
-<div style="margin-top: 1em; line-height: 1.4; font-size: 120%;">
+<div class="Column2Div"><img src="../resource/3/03_clone02.png"><div style='font-size: 110%;'>
 <ol>
-<li>
-<p>URL:<br>
-クローンする元のリポジトリのURLを入力する。</p>
-</li>
-<li>
-<p>ディレクトリ<br>
-クローン先のフォルダ。特にいじることはない。</p>
-</li>
+<li>URL:<br>
+クローンする元のリポジトリのURLを入力する。</li>
+<li>ディレクトリ<br>
+クローン先のフォルダ。特にいじることはない。</li>
 </ol>
-</div>
-</div><br/>
-<p>gitクローン画面に入力するためのURLを取得する。<br>
-githubのページの、<code>Code</code>からコピーできる。<br>
-<img width="70%" src="../resource/3/03_clone03.png"></p>
-<p><code>URL:</code>欄に、コピーしたURLを貼り付ける。<br>
-すると、クローン先のパスにレポジトリ名のディレクトリが自動的に追加される。<br>
+</div></div>
+<p>gitクローン画面に入力するためのURLを取得する。githubのページの、<code>Code</code>からコピーできる。<br>
+<img src="../resource/3/03_clone03.png"></p>
+<p><code>URL:</code>欄に、コピーしたURLを貼り付ける。すると、クローン先のパスにレポジトリ名のディレクトリが自動的に追加される。<br>
 また、このディレクトリが存在しない場合、クローン実行時に作成される。<br>
-<img width="50%" src="../resource/3/03_clone04.png"></p>
-<p>チェックは特にせず、そのまま<code>OK</code>を選択。<br>
-コマンド実行中のウィンドウが表示される。</p>
+<img src="../resource/3/03_clone04.png"></p>
+<p>チェックは特にせず、そのまま<code>OK</code>を選択。コマンド実行中のウィンドウが表示される。</p>
 <h3 id="tortoisegit%E3%81%A8github%E3%81%AE%E9%80%A3%E6%90%BA">TortoiseGitとgithubの連携</h3>
-<details><summary>連携を求められたら</summary>
-<div style="margin-left: 1em; border-bottom: dashed var(--color-border-muted); border-bottom-width:thin;">
+<details><summary>連携を求められたら実行する</summary>
 <p>TortoiseGitとgithubの連携を求める、下記のような画面が表示されている想定。</p>
-<img width="60%" src="../resource/3/03_clone05.png">
+<img src="../resource/3/03_clone05.png">
 <p>言われるがままに連携を進めていけばよい。はず。</p>
-<img width="30%" src="../resource/3/03_clone06.png">
-<img width="30%" src="../resource/3/03_clone07.png" style="position: absolute; margin-left: 1em;">
+<img src="../resource/3/03_clone06.png">
+<img src="../resource/3/03_clone07.png" style="position: absolute; margin-left: 1em;">
 <p>連携終了すればコマンド実行が再開される。</p>
-</div>
 </details>
 <h2 id="3-%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E5%AE%8C%E4%BA%86">3. クローン完了</h2>
 <p>コマンドが成功したら完了。<br>
-<img width="50%" src="../resource/3/03_clone08.png"></p>
-<p>gitフォルダを開くと、githubのリポジトリと同じフォルダ構成になっている。</p>
-<div>
-	<img width="50%" src="../resource/3/03_clone09.png">
-<div style="margin-left: 1em;">
-	<img src="../resource/3/03_clone10.png" style="display: block;">
-	<p style="margin-left: 1em;">※ツリー表示にするとこんな感じ。</p>
-</div>
-</div>
-<br/>
+<img src="../resource/3/03_clone08.png"></p>
+<p>gitフォルダを開くと、githubのリポジトリと同じフォルダ構成になっている。<br>
+<img src="../resource/3/03_clone09.png"></p>
 <blockquote>
 <p>緑のチェックマークについては後述します。<br>
 現状では、付いていてもいなくても問題ありません。</p>
 </blockquote>
 <h1 id="%E6%89%8B%E9%A0%86---%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88">手順 - コミット</h1>
-<p>リポジトリをローカルに持ってきたので、早速ファイルを追加する。ファイルをコピペするだけなので割愛。</p>
-<img width="50%" src="../resource/3/03_commit01.png">
+<p>リポジトリをローカルに持ってきたので、早速ファイルを追加する。ファイルをコピペするだけなので割愛。<br>
+<img src="../resource/3/03_commit01.png"></p>
 <h2 id="1-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. コミット画面を開く</h2>
 <p>右クリックし、<code>Git コミット(C) &gt; &quot;main&quot;...</code>を選択。<br>
-<img width="50%" src="../resource/3/03_commit02.png"></p>
+<img  src="../resource/3/03_commit02.png"></p>
 <h2 id="2-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97%E3%81%A6%E5%AE%9F%E8%A1%8C">2. コミットの設定をして実行</h2>
 <p>下記のような画面が表示されるので、メッセージを書き込み、コミットするファイルを選択する。</p>
-<div class="Column2Div">
-<img width="70%" src="../resource/3/03_commit03.png">
-<aside style="margin-top: 1em; line-height: 1.4; font-size: 110%;">
+<div class="Column2Div"><img src="../resource/3/03_commit03.png"><div style='font-size: 110%;'>
 <ol>
 <li>
 <p>メッセージ(M):<br>
@@ -515,16 +493,16 @@ githubのページの、<code>Code</code>からコピーできる。<br>
 </li>
 <li>
 <p>変更した項目<br>
-変更されたファイルの一覧。チェックされたファイルがコミットされる。<br>
+変更されたファイルの一覧。<br>
+チェックされたファイルがコミットされる。<br>
 今回は新規ファイルを追加したので、各ファイルの状態は「管轄外」となっている。</p>
 </li>
 </ol>
-</aside>
-</div><br/>
+</div></div>
 <p>コミット(O)をクリックすればコミットが実行され、コマンド実行中のウィンドウが表示される。</p>
 <h2 id="3-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E5%AE%8C%E4%BA%86">3. コミット完了</h2>
 <p>コマンドが成功したら完了。<br>
-<img width="50%" src="../resource/3/03_commit04.png"></p>
+<img src="../resource/3/03_commit04.png"></p>
 <h1 id="%E6%89%8B%E9%A0%86---push">手順 - push</h1>
 <p>今の作業では、ローカルのリポジトリにしか変更が反映されていない。githubのリポジトリに変更を反映させるため、プッシュする必要がある。</p>
 <p>pushとは、ローカルリポジトリの更新をリモートリポジトリへ反映させること。<br>
@@ -540,7 +518,7 @@ githubのページの、<code>Code</code>からコピーできる。<br>
 <p>コマンドが成功すれば完了。<br>
 <img src="../resource/3/03_push02.png"></p>
 <p>無事にgithubにも変更が反映されている。<br>
-<img width="80%" src="../resource/3/03_push03.png"></p>
+<img src="../resource/3/03_push03.png"></p>
 <h1 id="%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">チェックマークについて</h1>
 <p>TortoiseGitを使っていると、git管理されているファイルやフォルダは、アイコンにマークが付く。<br>
 マークがついていない場合は、最新の状態に更新するか、PCを再起動すれば付くようになるはず。<br>

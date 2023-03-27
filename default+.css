@@ -26,9 +26,19 @@ h4 {
 	font-size: 1.05em;
 }
 
+img{
+	border: black 1px solid;
+}
+
+
 p {
 	margin-top: .5em;
 	margin-bottom: .3em;
+}
+
+p>img {
+	margin-top: .2em;
+	margin-bottom: 1.2em;
 }
 
 body h1 {
@@ -50,12 +60,13 @@ body h3 {
 	border-bottom-width: 0px;
 }
 
+
 ul,
 ol {
 	padding-left: 2em;
-	line-height: 1.5em;
-	margin-top: 0.6em;
-	margin-bottom: 0.4em;
+	/* line-height: 1.5em; */
+	/* margin-top: 0.6em; */
+	/* margin-bottom: 0.4em; */
 }
 
 body>ul>li {
@@ -291,6 +302,11 @@ figcaption>p {
 
 .Column2Div>img {
 	border: black 1px solid;
+}
+
+.Column2Div>div>ol {
+	padding-left: 1em;
+	margin-top: .3em;
 }
 
 .Column2Div> :nth-child(odd) {
