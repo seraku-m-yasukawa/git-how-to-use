@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../test.css"/>
+
 # 03_TortoiseGitでgitクローン、コミット、プッシュ
 TortoiseGitとgithubの連携を行い、TortoiseGitからコミットする。
 
@@ -81,8 +83,7 @@ C:
 
 下記のようなgitクローン画面が表示される。
 
-<div style="    display: grid;
-    grid-template-columns: auto auto;">
+<div class="grid">
 <img src="../resource/3/03_clone02.png">
 
 <div style="margin-top: 1em; line-height: 1.4; font-size: 120%;">
@@ -90,7 +91,7 @@ C:
 1. URL:
    クローンする元のリポジトリのURLを入力する。
 
-1. ディレクトリ
+2. ディレクトリ
    クローン先のフォルダ。特にいじることはない。
 
 </div>
@@ -170,7 +171,7 @@ gitフォルダを開くと、githubのリポジトリと同じフォルダ構�
 ## 2. コミットの設定をして実行
 下記のような画面が表示されるので、メッセージを書き込み、コミットするファイルを選択する。
 
-<div style="display:flex">
+<div class="flex">
 <img width="70%" src="../resource/3/03_commit03.png">
 
 <div style="margin-top: 1em; line-height: 1.4; font-size: 110%;">
