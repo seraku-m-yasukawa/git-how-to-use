@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>03_TortoiseGitでコミット.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///c%3A/Users/m-yasukawa/Documents/default%2B.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<link rel="stylesheet" href="../default+.css"/>
+<h1 id="03tortoisegit%E3%81%A7git%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5">03_TortoiseGitでgitクローン、コミット、プッシュ</h1>
+<p>TortoiseGitとgithubの連携を行い、TortoiseGitからコミットする。</p>
+<h2 id="%E5%89%8D%E6%8F%90">前提</h2>
+<ul>
+<li>githubのアカウントは作成済</li>
+<li>TortoiseGitはまだDLしてない</li>
+</ul>
+<h2 id="%E6%A6%82%E8%A6%81%E4%BD%95%E3%81%97%E3%81%A6%E3%82%8B%E3%81%AE">概要（何してるの？）</h2>
+<p>実は、javaの資料は既にある程度作成済だったので、githubにアップロードしてコミットしたい。<br>
+githubに直接アップロードしてもいいけど、ここではTortoiseGitを使ってコミットして目的を果たす。</p>
+<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<ul>
+<li><a href="#03_tortoisegit%E3%81%A7git%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5">03_TortoiseGitでgitクローン、コミット、プッシュ</a>
+<ul>
+<li><a href="#%E5%89%8D%E6%8F%90">前提</a></li>
+<li><a href="#%E6%A6%82%E8%A6%81%E4%BD%95%E3%81%97%E3%81%A6%E3%82%8B%E3%81%AE">概要（何してるの？）</a></li>
+<li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%8B%E9%A0%86---git%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3">手順 - gitクローン</a>
+<ul>
+<li><a href="#0-tortoisegit%E3%81%AE%E6%BA%96%E5%82%99">0. TortoiseGitの準備</a></li>
+<li><a href="#1-%E3%81%A9%E3%81%93%E3%81%8B%E3%81%ABgit%E7%94%A8%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%82%92%E4%BD%9C%E3%82%8B">1. どこかにgit用フォルダを作る</a></li>
+<li><a href="#2-git%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B">2. gitクローンする</a>
+<ul>
+<li><a href="#tortoisegit%E3%81%A8github%E3%81%AE%E9%80%A3%E6%90%BA">TortoiseGitとgithubの連携</a></li>
+</ul>
+</li>
+<li><a href="#3-%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E5%AE%8C%E4%BA%86">3. クローン完了</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%8B%E9%A0%86---%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88">手順 - コミット</a>
+<ul>
+<li><a href="#1-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. コミット画面を開く</a></li>
+<li><a href="#2-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97%E3%81%A6%E5%AE%9F%E8%A1%8C">2. コミットの設定をして実行</a></li>
+<li><a href="#3-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E5%AE%8C%E4%BA%86">3. コミット完了</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%8B%E9%A0%86---push">手順 - push</a>
+<ul>
+<li><a href="#1-%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. プッシュ画面を開く</a></li>
+<li><a href="#2-%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%81%99%E3%82%8B">2. プッシュする</a></li>
+<li><a href="#3-%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E5%AE%8C%E4%BA%86">3. プッシュ完了</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">チェックマークについて</a></li>
+</ul>
+<h1 id="%E6%89%8B%E9%A0%86---git%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3">手順 - gitクローン</h1>
+<p>まず、github上に存在するコードをローカルに持ってきたい。<br>
+普通にZipファイルをダウンロードしても持ってこれるが、コミットとかしたいので、<code>gitクローン</code>を行う。</p>
+<p>クローンとは、サーバ上のリポジトリをコンピュータへコピーすること。<br>
+また、github上にあるリポジトリを<strong>リモートリポジトリ</strong>、クローンしてPCに持ってきたリポジトリを<strong>ローカルリポジトリ</strong>と呼ぶ。</p>
+<p>リモートリポジトリはサーバ上のファイルやフォルダ、ローカルリポジトリはそのサーバ上のファイルをフォルダごとコピーしてPCに保存したもの、と思ってください。<br>
+また、これから本格的にgitについて解説しますが、基本的には共有サーバとローカルPCのやり取りで考えればわかりやすいと思います。</p>
+<h2 id="0-tortoisegit%E3%81%AE%E6%BA%96%E5%82%99">0. TortoiseGitの準備</h2>
+<p>TortoiseGitとは、gitのクライアント。gitを使いやすくしてくれる。</p>
+<p>インストールして日本語化までする。gitがまだだったらそっちもする。<br>
+詳細は割愛。下記URL参考に。<br>
+<a href="https://backlog.com/ja/git-tutorial/intro/05/">Gitのインストール｜サル先生のGit入門【プロジェクト管理ツールBacklog】</a></p>
+<h2 id="1-%E3%81%A9%E3%81%93%E3%81%8B%E3%81%ABgit%E7%94%A8%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%82%92%E4%BD%9C%E3%82%8B">1. どこかにgit用フォルダを作る</h2>
+<p>ひとまず、どこかにgit用のフォルダを作る。C直下やユーザー直下に「git」とか、わかりやすい名前を付けて作成。<br>
+この中にリポジトリを持ってくるイメージ。</p>
+<pre class="hljs"><code><div>C:
+  └git
+    ├ java-training-document
+    │ ├─ カンペ集
+    │ │  ├─ その他資料
+    │ │  ├─ スケジュール
+    │ │  └─ 講座内容
+    │ └─ 課題・ソースコード
+    │ 
+    ├ 別のリポジトリ
+   ...
+</div></code></pre>
+<p>フォルダ構成は上記のようになっていく。</p>
+<h2 id="2-git%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B">2. gitクローンする</h2>
+<p>作ったフォルダを右クリックして、<code>gitクローン(複製)...</code>を選択。</p>
+<img width="70%" src="../resource/3/03_clone01.png">
+<p>下記のようなgitクローン画面が表示される。</p>
+<div class="grid">
+<img src="../resource/3/03_clone02.png">
+<div style="margin-top: 1em; line-height: 1.4; font-size: 120%;">
+<ol>
+<li>
+<p>URL:<br>
+クローンする元のリポジトリのURLを入力する。</p>
+</li>
+<li>
+<p>ディレクトリ<br>
+クローン先のフォルダ。特にいじることはない。</p>
+</li>
+</ol>
+</div>
+</div><br/>
+<p>gitクローン画面に入力するためのURLを取得する。<br>
+githubのページの、<code>Code</code>からコピーできる。<br>
+<img width="70%" src="../resource/3/03_clone03.png"></p>
+<p><code>URL:</code>欄に、コピーしたURLを貼り付ける。<br>
+すると、クローン先のパスにレポジトリ名のディレクトリが自動的に追加される。<br>
+また、このディレクトリが存在しない場合、クローン実行時に作成される。<br>
+<img width="50%" src="../resource/3/03_clone04.png"></p>
+<p>チェックは特にせず、そのまま<code>OK</code>を選択。<br>
+コマンド実行中のウィンドウが表示される。</p>
+<h3 id="tortoisegit%E3%81%A8github%E3%81%AE%E9%80%A3%E6%90%BA">TortoiseGitとgithubの連携</h3>
+<details><summary>連携を求められたら</summary>
+<div style="margin-left: 1em; border-bottom: dashed var(--color-border-muted); border-bottom-width:thin;">
+<p>TortoiseGitとgithubの連携を求める、下記のような画面が表示されている想定。</p>
+<img width="60%" src="../resource/3/03_clone05.png">
+<p>言われるがままに連携を進めていけばよい。はず。</p>
+<img width="30%" src="../resource/3/03_clone06.png">
+<img width="30%" src="../resource/3/03_clone07.png" style="position: absolute; margin-left: 1em;">
+<p>連携終了すればコマンド実行が再開される。</p>
+</div>
+</details>
+<h2 id="3-%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E5%AE%8C%E4%BA%86">3. クローン完了</h2>
+<p>コマンドが成功したら完了。<br>
+<img width="50%" src="../resource/3/03_clone08.png"></p>
+<p>gitフォルダを開くと、githubのリポジトリと同じフォルダ構成になっている。</p>
+<div>
+	<img width="50%" src="../resource/3/03_clone09.png">
+<div style="margin-left: 1em;">
+	<img src="../resource/3/03_clone10.png" style="display: block;">
+	<p style="margin-left: 1em;">※ツリー表示にするとこんな感じ。</p>
+</div>
+</div>
+<br/>
+<blockquote>
+<p>緑のチェックマークについては後述します。<br>
+現状では、付いていてもいなくても問題ありません。</p>
+</blockquote>
+<h1 id="%E6%89%8B%E9%A0%86---%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88">手順 - コミット</h1>
+<p>リポジトリをローカルに持ってきたので、早速ファイルを追加する。ファイルをコピペするだけなので割愛。</p>
+<img width="50%" src="../resource/3/03_commit01.png">
+<h2 id="1-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. コミット画面を開く</h2>
+<p>右クリックし、<code>Git コミット(C) &gt; &quot;main&quot;...</code>を選択。<br>
+<img width="50%" src="../resource/3/03_commit02.png"></p>
+<h2 id="2-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97%E3%81%A6%E5%AE%9F%E8%A1%8C">2. コミットの設定をして実行</h2>
+<p>下記のような画面が表示されるので、メッセージを書き込み、コミットするファイルを選択する。</p>
+<div class="Column2Div">
+<img width="70%" src="../resource/3/03_commit03.png">
+<aside style="margin-top: 1em; line-height: 1.4; font-size: 110%;">
+<ol>
+<li>
+<p>メッセージ(M):<br>
+そのままの意味。メッセージ。<br>
+1行目がgithubでコミットするときの概要、2行目からが詳細となる。</p>
+</li>
+<li>
+<p>変更した項目<br>
+変更されたファイルの一覧。チェックされたファイルがコミットされる。<br>
+今回は新規ファイルを追加したので、各ファイルの状態は「管轄外」となっている。</p>
+</li>
+</ol>
+</aside>
+</div><br/>
+<p>コミット(O)をクリックすればコミットが実行され、コマンド実行中のウィンドウが表示される。</p>
+<h2 id="3-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E5%AE%8C%E4%BA%86">3. コミット完了</h2>
+<p>コマンドが成功したら完了。<br>
+<img width="50%" src="../resource/3/03_commit04.png"></p>
+<h1 id="%E6%89%8B%E9%A0%86---push">手順 - push</h1>
+<p>今の作業では、ローカルのリポジトリにしか変更が反映されていない。githubのリポジトリに変更を反映させるため、プッシュする必要がある。</p>
+<p>pushとは、ローカルリポジトリの更新をリモートリポジトリへ反映させること。<br>
+ローカルPCで編集したファイルを共有サーバにアップロードするイメージ。</p>
+<h2 id="1-%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E7%94%BB%E9%9D%A2%E3%82%92%E9%96%8B%E3%81%8F">1. プッシュ画面を開く</h2>
+<p>さっきのコミット完了のウィンドウの、左下の<code>プッシュ(H)</code>をクリック。<br>
+もし閉じていた場合は、リポジトリのフォルダを右クリックし、<code>TortoiseGit &gt; プッシュ(H)...</code>と選択する。</p>
+<h2 id="2-%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%81%99%E3%82%8B">2. プッシュする</h2>
+<p>下記のような画面が表示されるので、今回はそのまま<code>OK</code>を選択する。<br>
+<img src="../resource/3/03_push01.png"></p>
+<p><code>OK</code>を選択すると、いつものコマンド実行画面が表示される。</p>
+<h2 id="3-%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E5%AE%8C%E4%BA%86">3. プッシュ完了</h2>
+<p>コマンドが成功すれば完了。<br>
+<img src="../resource/3/03_push02.png"></p>
+<p>無事にgithubにも変更が反映されている。<br>
+<img width="80%" src="../resource/3/03_push03.png"></p>
+<h1 id="%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">チェックマークについて</h1>
+<p>TortoiseGitを使っていると、git管理されているファイルやフォルダは、アイコンにマークが付く。<br>
+マークがついていない場合は、最新の状態に更新するか、PCを再起動すれば付くようになるはず。<br>
+<img src="../resource/3/03_mark01.png"></p>
+<p>アイコンの種類と意味は以下の通り。この一覧はTortoiseGitの設定から確認できる。<br>
+<img src="../resource/3/03_mark02.png"></p>
+
+</body>
+</html>

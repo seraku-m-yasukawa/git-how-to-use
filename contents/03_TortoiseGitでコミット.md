@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../test.css"/>
+<link rel="stylesheet" href="../default+.css"/>
 
 # 03_TortoiseGitでgitクローン、コミット、プッシュ
 TortoiseGitとgithubの連携を行い、TortoiseGitからコミットする。
@@ -171,7 +171,7 @@ gitフォルダを開くと、githubのリポジトリと同じフォルダ構�
 ## 2. コミットの設定をして実行
 下記のような画面が表示されるので、メッセージを書き込み、コミットするファイルを選択する。
 
-<div >
+<div class="Column2Div">
 <img width="70%" src="../resource/3/03_commit03.png">
 
 <aside style="margin-top: 1em; line-height: 1.4; font-size: 110%;">
