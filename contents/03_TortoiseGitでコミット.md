@@ -81,8 +81,9 @@ C:
 
 下記のようなgitクローン画面が表示される。
 
-<div>
-<img width="50%" src="../resource/3/03_clone02.png">
+<div style="    display: grid;
+    grid-template-columns: auto auto;">
+<img src="../resource/3/03_clone02.png">
 
 <div style="margin-top: 1em; line-height: 1.4; font-size: 120%;">
 
@@ -169,20 +170,18 @@ gitフォルダを開くと、githubのリポジトリと同じフォルダ構�
 ## 2. コミットの設定をして実行
 下記のような画面が表示されるので、メッセージを書き込み、コミットするファイルを選択する。
 
-<div>
+<div style="display:flex">
 <img width="70%" src="../resource/3/03_commit03.png">
 
 <div style="margin-top: 1em; line-height: 1.4; font-size: 110%;">
 
+   1. メッセージ(M):
+      そのままの意味。メッセージ。
+      1行目がgithubでコミットするときの概要、2行目からが詳細となる。
 
-
-1. メッセージ(M):
-   そのままの意味。メッセージ。
-   1行目がgithubでコミットするときの概要、2行目からが詳細となる。
-
-1. 変更した項目
-   変更されたファイルの一覧。チェックされたファイルがコミットされる。
-   今回は新規ファイルを追加したので、各ファイルの状態は「管轄外」となっている。
+   2. 変更した項目
+      変更されたファイルの一覧。チェックされたファイルがコミットされる。
+      今回は新規ファイルを追加したので、各ファイルの状態は「管轄外」となっている。
 
 </div>
 </div><br/>
