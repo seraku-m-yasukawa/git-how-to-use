@@ -4,7 +4,7 @@ about: Create a report to help us improve
 title: "[Bug]"
 labels: bug
 assignees: ''
-Projects: SFA業務自動化RPA
+Projects: https://github.com/orgs/seraku-m-yasukawa/projects/2
 
 ---
 
