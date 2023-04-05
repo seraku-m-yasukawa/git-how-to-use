@@ -4,7 +4,7 @@ about: Create a report to help us improve
 title: "[Bug]"
 labels: bug
 assignees: ''
-projects: https://github.com/orgs/seraku-m-yasukawa/projects/2
+projects: https://github.com/users/seraku-m-yasukawa/projects/2
 
 ---
 
