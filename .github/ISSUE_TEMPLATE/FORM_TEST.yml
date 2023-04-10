@@ -28,7 +28,7 @@ body:
     validations:
       required: true
 
- - type: textarea
+  - type: textarea
     attributes:
       label: What part(s) of the article would you like to see updated?
       description: |
