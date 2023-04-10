@@ -3,7 +3,7 @@ description: Make a suggestion to improve the content in an existing article.
 labels:
   - content
 body:
-- type: markdown
+ - type: markdown
      attributes:
       value: |
         **HUBBERS!!** This is the github/docs open source repo. You may want to open an issue in the internal-only github/docs-content repo instead.
