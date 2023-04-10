@@ -35,7 +35,7 @@ body:
        - Give as much detail as you can to help us understand the change you want to see. 
        - Why should the docs be changed? What use cases does it support? 
        - What is the expected outcome?
-    validations:
+   validations:
       required: true
 
  - type: textarea
