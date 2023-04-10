@@ -14,13 +14,3 @@ md記法については下記リンクを参照してください。
 - [Markdown記法 チートシート - Qiita](https://qiita.com/Qiita/items/c686397e4a0f4f11683d)
 - [Markdown記法一覧 - Qiita](https://qiita.com/oreo/items/82183bfbaac69971917f)
 
-## 2
-### 3
-#### 4
-##### 5
-###### 6
-
-
-
-## 2
-#### 4
