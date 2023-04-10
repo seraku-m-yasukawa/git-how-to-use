@@ -3,7 +3,7 @@ description: Make a suggestion to improve the content in an existing article.
 labels:
   - content
 body:
-  - type: markdown
+- type: markdown
     attributes:
       value: |
         **HUBBERS!!** This is the github/docs open source repo. You may want to open an issue in the internal-only github/docs-content repo instead.
@@ -12,7 +12,7 @@ body:
         * Before you file an issue read the [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md).
         * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues).
 
-  - type: checkboxes
+ - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
