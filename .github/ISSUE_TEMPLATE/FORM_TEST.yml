@@ -13,8 +13,8 @@ body:
         * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues).
 
  - type: checkboxes
-    id: terms
-    attributes:
+   id: terms
+   attributes:
       label: Code of Conduct
       description: This project has a Code of Conduct that all participants are expected to understand and follow.
       options:
